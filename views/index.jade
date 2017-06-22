@@ -3,3 +3,23 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+  
+  p User stories:
+  ul
+    li I can pass a URL as a parameter and I will receive a "shortened" URL in the JSON response.
+    li When I visit that shortened URL, it will redirect me to my original link.
+    
+  h2 Example usage:
+  p localhost:3000/shortener/https://www.google.com
+  p localhost:3000/shortener/http://freecodecamp.com/news
+  
+  h2 Example creation output:
+  code { "original": "http://freecodecamp.com/news", "shortened": "localhost:3000/abc"}
+  br
+  br
+  
+  //- h3 Current items in mongodb
+  //- hr
+  //- ul
+  //-   for item in items
+  //-     li= item
