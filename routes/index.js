@@ -23,17 +23,7 @@ router.get('/', function(req, res, next) {
     })
 });
 
-router.get('/new/:url', (req, res) => {
-  var url = {
-    original: req.params.url,
-    shortened: null
-  }
-
-  var data = new UrlData(url)
-  data.save()
-
-  res.redirect('/')
-})
+// extract this stuff to a module??
 
 router.get('/shortener/:url(*)', (req, res) => {
   var urlParam = req.params.url
