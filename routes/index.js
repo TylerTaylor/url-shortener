@@ -1,8 +1,9 @@
 var express = require('express');
 var router = express.Router();
-var mongoose = require('mongoose')
-mongoose.connect('localhost:27017/urls')
-var Schema = mongoose.Schema
+var mongoose = require('mongoose');
+var dbUrl = process.env.MONGOLAB_URI;
+mongoose.connect(dbUrl)
+var Schema = mongoose.Schema;
 
 var urlDataSchema = new Schema({
   original: {type: String, required: true, unique: true },
