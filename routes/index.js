@@ -93,7 +93,7 @@ router.get('/shortener/:url(*)', (req, res) => {
 
     console.log("checkForShortMatch has been fired! Our url should end in: /" + shortUrl)
 
-    UrlData.find({ shortened: 'localhost:3000/' + shortUrl }, (err, data) => {
+    UrlData.find({ shortened: 'https://vast-castle-33776.herokuapp.com/' + shortUrl }, (err, data) => {
       if (err) throw err
 
       if (data && data.length) {
@@ -118,7 +118,7 @@ router.get('/shortener/:url(*)', (req, res) => {
   function createLinkPair(shortUrl) {
     var urlObj = {
       original: urlParam,
-      shortened: 'localhost:3000/' + shortUrl
+      shortened: 'https://vast-castle-33776.herokuapp.com/' + shortUrl
     }
 
     saveAndDisplayData(urlObj)
@@ -141,7 +141,7 @@ router.get('/:id', (req, res) => {
   // grab the id
   let id = req.params.id
 
-  let url = "localhost:3000/" + id
+  let url = "https://vast-castle-33776.herokuapp.com/" + id
 
   // locate the record
   UrlData.find({ shortened: url }, (err, data) => {
